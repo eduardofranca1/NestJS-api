@@ -19,7 +19,7 @@ export class UserService {
       user: data.username,
       github: data.github,
       linkedin: data.linkedin,
-      to: data.email,
+      userEmail: data.email,
       phone: data.phone,
       message: data.message,
       level: data.level,
@@ -42,4 +42,6 @@ export class UserService {
   public async findByUsername(username: string): Promise<User> {
     return await this.repository.findOne({ where: { username: username } });
   }
+
+  public async update(id: string) {}
 }

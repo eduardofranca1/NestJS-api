@@ -3,10 +3,10 @@ import { MailerService } from '@nestjs-modules/mailer';
 
 interface EmailOptions {
   user: string;
+  userEmail: string;
   github: string;
   linkedin: string;
   phone: string;
-  to: string;
   message: string;
   level: number;
 }
@@ -18,14 +18,14 @@ export class EmailService {
   public async sendEmail(options: EmailOptions) {
     this.service
       .sendMail({
-        to: options.to,
-        from: 'dudutoma1992@gmail.com',
+        to: 'francaedu98@gmail.com',
+        from: options.userEmail,
         subject: 'Email from your site ✔',
         text: options.message,
         html: `
         <h1>Dudu, você tem uma nova mensagem de ${options.user}</h1>
         <ul> 
-            <li>Email: ${options.to} </li>
+            <li>Email: ${options.userEmail} </li>
             <li>LinkedIn: ${options.linkedin} </li>
             <li>Phone: ${options.phone} </li>
             <li>GitHub: ${options.github} </li>
